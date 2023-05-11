@@ -10,6 +10,15 @@ class IsMoon implements StringChecker {
 }
 
 public class TestListExamples {
+
+  @Test
+  public void testFilter(){
+    List<String> strInputs = new ArrayList<>(Arrays.asList("Sailormoon", "MOON", "moons", "mOOn"));
+    List<String> actual = ListExamples.filter(strInputs, new IsMoon());
+    List<String> expected = new ArrayList<>(Arrays.asList( "MOON", "mOOn"));
+    assertArrayEquals(expected, actual);
+  }
+
   @Test(timeout = 500)
   public void testMergeRightEnd() {
     List<String> left = Arrays.asList("a", "b", "c");
